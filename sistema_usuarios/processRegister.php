@@ -7,6 +7,7 @@ if (isset($_POST['register'])) {
     $username = $_POST['nombre'];
     $email = $_POST['email'];
     $password = $_POST['contraseña'];  
+    $password_hash = password_hash($password, PASSWORD_BCRYPT);
     $rol=2;
 
     $consulta = $db->prepare("select * from usuario WHERE gmail=:email");
@@ -20,7 +21,7 @@ if (isset($_POST['register'])) {
     if ($consulta->rowCount() == 0) {
         $consulta = $db->prepare("INSERT INTO usuario(nombre,contrasena,gmail,rol) VALUES (:username,:contrasena,:email,:rol)");
         $consulta->bindParam("username", $username);
-        $consulta->bindParam("contrasena", $password);
+        $consulta->bindParam("contrasena", $password_hash);
         $consulta->bindParam("email", $email);
         $consulta->bindParam("rol", $rol);
         $result = $consulta->execute();

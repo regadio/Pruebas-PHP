@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-11-2022 a las 14:48:47
+-- Tiempo de generación: 10-11-2022 a las 00:49:26
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -20,6 +20,18 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `usuarios`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pelis`
+--
+
+CREATE TABLE `pelis` (
+  `id` int(11) NOT NULL,
+  `nombre_peli` varchar(200) NOT NULL,
+  `imagen_peli` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -59,11 +71,33 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `nombre`, `contrasena`, `gmail`, `rol`) VALUES
-(1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'admin@gmail.com', 1);
+(1, 'admin', 'admin', 'admin@gmail.com', 1),
+(8, 'Rodrigo', '1', 'r@gmail.com', 2),
+(9, '3', '1', 'rr@gmail.com', 2),
+(11, 'regadior', '1234', 'regadior@gmail.com', 2),
+(13, 'lemos', '$2y$10$AT1lx3f6xOchJdazafZSM..BXPLCfjmjpGWhh8.WpUstxsMjhjCY6', 'lemos2@gmail.com', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario_pelis`
+--
+
+CREATE TABLE `usuario_pelis` (
+  `id` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `id_pelis` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `pelis`
+--
+ALTER TABLE `pelis`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `roles`
@@ -79,8 +113,22 @@ ALTER TABLE `usuario`
   ADD KEY `rol` (`rol`);
 
 --
+-- Indices de la tabla `usuario_pelis`
+--
+ALTER TABLE `usuario_pelis`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_usuario` (`id_usuario`),
+  ADD KEY `id_pelis` (`id_pelis`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `pelis`
+--
+ALTER TABLE `pelis`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -92,7 +140,13 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario_pelis`
+--
+ALTER TABLE `usuario_pelis`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
@@ -103,6 +157,13 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `usuario`
   ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`rol`) REFERENCES `roles` (`id`);
+
+--
+-- Filtros para la tabla `usuario_pelis`
+--
+ALTER TABLE `usuario_pelis`
+  ADD CONSTRAINT `usuario_pelis_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`),
+  ADD CONSTRAINT `usuario_pelis_ibfk_2` FOREIGN KEY (`id_pelis`) REFERENCES `pelis` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
