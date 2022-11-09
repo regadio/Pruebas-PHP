@@ -1,18 +1,3 @@
-<?php
-include_once('./database/connection.php');
-session_start();
-
-
-
-
-
-
-
-?>
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,10 +23,6 @@ session_start();
         <div class="form-element">
             <label>email</label>
             <input type="email" name="email" required />
-        </div>
-        <div class="form-element">
-            <label>apellido</label>
-            <input type="text" name="apellido" required />
         </div>
         <button type="submit" name="register" value="register">Registrar</button>
     </form>
