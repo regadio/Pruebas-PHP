@@ -8,5 +8,17 @@
     <link rel="stylesheet" href="./style/style.css">
 </head>
 <body>
+<form action="processLogin.php" method="post" name="signin-form">
+        <div class="form-element">
+            <label>nombre</label>
+            <input type="text" name="nombre" pattern="[a-zA-Z0-9]+" required />
+        </div>
+        <div class="form-element">
+            <label>contraseña</label>
+            <input type="password" name="contraseña" required />
+        </div>
+        <button type="submit" name="login" value="login">Login</button>
+    </form>
+
 </body>
 </html>

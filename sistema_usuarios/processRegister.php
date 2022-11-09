@@ -7,7 +7,7 @@ if (isset($_POST['register'])) {
     $username = $_POST['nombre'];
     $email = $_POST['email'];
     $password = $_POST['contraseña'];  
-    $rol=0;
+    $rol=2;
 
     $consulta = $db->prepare("select * from usuario WHERE gmail=:email");
     $consulta->bindParam("email",$email);
@@ -26,7 +26,7 @@ if (isset($_POST['register'])) {
         $result = $consulta->execute();
  
         if ($result) {
-            echo '<p class="success">Your registration was successful!</p>';
+            header("Location: login.php");
         } else {
             echo '<p class="error">Something went wrong!</p>';
         }
