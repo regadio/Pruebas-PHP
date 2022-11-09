@@ -3,12 +3,13 @@
 $user = 'root';
 $password = '1234';
 $host = 'localhost';
-$dbName = 'php_auth';
+$dbName = 'usuarios';
 
 $db = null;
 try {
     $db = new PDO("mysql:host=$host;dbname=$dbName", $user, $password);
 } catch (PDOException $e) {
-    echo "Error connecting to database: ". $e->getMessage();
+    echo "Error connecting to database: " . $e->getMessage();
     die();
 }
+?>
