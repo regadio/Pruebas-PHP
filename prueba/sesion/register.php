@@ -12,19 +12,23 @@
 
 <body>
     <form action="processRegister.php" method="post" name="signin-form">
-        <div class="form-element">
+        <div class="">
             <label>nombre</label>
-            <input type="text" name="nombre" pattern="[a-zA-Z0-9]+" required />
+            <input type="text" name="nombre" required />
         </div>
-        <div class="form-element">
-            <label>contraseña</label>
-            <input type="password" name="contraseña" required />
-        </div>
-        <div class="form-element">
+        <div class="">
             <label>email</label>
             <input type="email" name="email" required />
         </div>
-        <button type="submit" name="register" value="register">Registrar</button>
+        <div class="">
+            <label>contraseña</label>
+            <input type="password" name="contraseña" required />
+        </div>
+        <div class="">
+            <label>Vuelve a escribir la contraseña</label>
+            <input type="password" name="contraseña2" required />
+        </div>
+        <button type="submit" name="register" value="register">Registrarse</button>
     </form>
 
 </body>
