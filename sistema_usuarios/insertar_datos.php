@@ -12,8 +12,12 @@ require_once ('validacion.php');
     <title>Insertar datos pelicula</title>
 </head>
 <body>
-    <form action="" method="post">
-    
+    <form action="processLogin.php" method="post">
+    <label for="">Nombre Peli</label>
+    <input type="text" name="">
+    <label for="">Imagen peli</label>
+    <input type="text" name="">
+    <button type="submit" name="insertarpeli" value="insertarpeli">Insertar</button>
     </form>
 </body>
 </html>
