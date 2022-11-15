@@ -14,9 +14,9 @@ require_once ('validacion.php');
 <body>
     <form action="processLogin.php" method="post">
     <label for="">Nombre Peli</label>
-    <input type="text" name="">
+    <input type="text" name="nombre_peli">
     <label for="">Imagen peli</label>
-    <input type="text" name="">
+    <input type="text" name="imagen_peli">
     <button type="submit" name="insertarpeli" value="insertarpeli">Insertar</button>
     </form>
 </body>

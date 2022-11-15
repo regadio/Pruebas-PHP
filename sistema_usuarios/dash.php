@@ -15,6 +15,6 @@ require_once ('validacion.php');
 a
 <a href="logout.php">Cerrar sesion</a>
 <a href="insertar_datos.php">Insertar datos pelicula</a>
-
+<!-- https://s03.s3c.es/imag/_v0/770x420/b/3/6/490x_Better-With-Movies-01.jpg -->
 </body>
 </html>
