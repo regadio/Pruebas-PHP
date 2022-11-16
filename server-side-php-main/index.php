@@ -79,48 +79,6 @@
         </div>
     </main>
 
-    <script>
-        let paginaActual = 1
-        /* Llamando a la función getData() */
-        getData(paginaActual)
-
-        /* Escuchar un evento keyup en el campo de entrada y luego llamar a la función getData. */
-        document.getElementById("campo").addEventListener("keyup", function() {
-            getData(1)
-        }, false)
-        document.getElementById("num_registros").addEventListener("change", function() {
-            getData(paginaActual)
-        }, false)
-
-
-        /* Peticion AJAX */
-        function getData(pagina) {
-            let input = document.getElementById("campo").value
-            let num_registros = document.getElementById("num_registros").value
-            let content = document.getElementById("content")
-
-            if (pagina != null) {
-                paginaActual = pagina
-            }
-
-            let url = "load.php"
-            let formaData = new FormData()
-            formaData.append('campo', input)
-            formaData.append('registros', num_registros)
-            formaData.append('pagina', paginaActual)
-
-            fetch(url, {
-                    method: "POST",
-                    body: formaData
-                }).then(response => response.json())
-                .then(data => {
-                    content.innerHTML = data.data
-                    document.getElementById("lbl-total").innerHTML = 'Mostrando ' + data.totalFiltro +
-                        ' de ' + data.totalRegistros + ' registros'
-                    document.getElementById("nav-paginacion").innerHTML = data.paginacion
-                }).catch(err => console.log(err))
-        }
-    </script>
 
     <!-- Bootstrap core JS -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
