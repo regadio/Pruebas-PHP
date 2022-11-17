@@ -27,7 +27,7 @@ if (isset($_POST['register'])) {
         $result = $consulta->execute();
  
         if ($result) {
-            header("Location: login.php");
+            header("Location: ../vistas/login.php");
         } else {
             echo '<p class="error">Something went wrong!</p>';
         }

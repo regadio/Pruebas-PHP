@@ -22,8 +22,8 @@ if (isset($_POST['login'])) {
         if (password_verify($password, $resultados['contrasena'])) {
             $_SESSION['user_id'] = $resultados['id'];
             $_SESSION['nombre'] = $resultados['nombre'];
-
-            header("Location: ../vistas/home.php");
+            $_SESSION['rol'] = $resultados['rol'];
+                header("Location: ../vistas/menu.php");
         } else {
             echo '<p class="error">Username password combination is wrong!</p>';
         }

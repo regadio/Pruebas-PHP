@@ -29,4 +29,5 @@ function limpiar_cadena($cadena)
     $cadena = stripslashes($cadena);
     return $cadena;
 }
+
 ?>
